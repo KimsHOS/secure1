@@ -37,24 +37,13 @@ android {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
+          release(MavenPublication){
                 from components.release
-
+                
+                // The following coordinates will be used by JitPack
                 groupId = 'com.github.KimsHOS'
                 artifactId = 'achalasecure'
-                version = '1.0.9'
-
-                pom {
-                    name = 'AchalaSecure'
-                    description = 'Face Authentication Library'
-                    url = 'https://github.com/KimsHOS/secure1'
-                    licenses {
-                        license {
-                            name = 'The Apache License, Version 2.0'
-                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        }
-                    }
-                }
+                version = '1.0.0'
             }
         }
     }
