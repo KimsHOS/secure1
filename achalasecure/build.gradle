@@ -10,6 +10,8 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 34
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -23,17 +25,36 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
+                from components.release
+
                 groupId = 'com.github.KimsHOS'
                 artifactId = 'achalasecure'
-                version = '1.0.0'
-                
-                from components.release
+                version = '1.0.9'
+
+                pom {
+                    name = 'AchalaSecure'
+                    description = 'Face Authentication Library'
+                    url = 'https://github.com/KimsHOS/secure1'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                }
             }
         }
     }
