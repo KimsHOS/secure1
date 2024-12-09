@@ -134,7 +134,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.example.achalasecure.R.layout.activity_camera_lib);
-        getWindow().setStatusBarColor(getResources().getColor(com.example.achalasecure.R.color.white)); // Replace with your color
+        getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
 
         // Set the icons color to dark
 
@@ -1378,7 +1378,8 @@ public class CameraActivity extends AppCompatActivity {
     private void startBlinking(TextView view) {
         view.setVisibility(View.VISIBLE);
         faceMaskImage.setVisibility(View.VISIBLE);
-        view.setTextColor(getColor(com.example.achalasecure.R.color.purple_200));
+
+        view.setTextColor(Color.parseColor("#174EA6"));
         animator = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f, 1f);
         animator.setDuration(1000); // Duration for one cycle of blink (1 second)
         animator.setRepeatCount(ObjectAnimator.INFINITE); // Repeat indefinitely
@@ -1389,7 +1390,7 @@ public class CameraActivity extends AppCompatActivity {
     private void stopBlinking(TextView view) {
         view.setVisibility(View.GONE);
         faceMaskImage.setVisibility(View.GONE);
-        view.setTextColor(getColor(com.example.achalasecure.R.color.purple_200));
+        view.setTextColor(Color.parseColor("#174EA6"));
         animator.cancel();
         animator = null;
     }
