@@ -61,10 +61,12 @@ afterEvaluate{
     publishing {
         publications {
             release(MavenPublication){
-                //from components.release
-                groupId = 'com.example.achalasecure'
+                from components.release
+                
+                // The following coordinates will be used by JitPack
+                groupId = 'com.github.KimsHOS'
                 artifactId = 'achalasecure'
-                version = '1.0'
+                version = '1.0.0'
             }
         }
     }

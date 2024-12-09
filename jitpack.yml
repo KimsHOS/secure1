@@ -1,31 +1,11 @@
 # configuration file for building snapshots and releases with jitpack.io
 jdk:
   - openjdk17
+
 before_install:
-  - ./scripts/prepareJitpackEnvironment.sh
+  - sdk install java 17.0.9-tem
+  - sdk use java 17.0.9-tem
+  - ./gradlew clean
+
 install:
-  - mvn install -DskipTests
-#  - FILE="-Dfile=achalasecure-release.aar"
-#  - mvn install:install-file $FILE -DgroupId=com.github.KimsHOS -DartifactId=achalasecure1 -Dversion=1.0.9 -Dpackaging=aar -DgeneratePom=true
-#  - mvn install -DskipTests
-
-
-#
-#
-#jdk:
-#  - openjdk17
-#
-#before_install:
-#  - ./scripts/prepareJitpackEnvironment.sh
-#
-#install:
-#  # Install required dependencies and build
-#  - mvn clean install -DskipTests
-#
-#  # Prepare and install the .aar file to the local Maven repository
-#  - mvn install:install-file -Dfile=achalasecure-release.aar \
-#    -DgroupId=com.github.KimsHOS \
-#    -DartifactId=achalasecure1 \
-#    -Dversion=1.0.9 \
-#    -Dpackaging=aar \
-#    -DgeneratePom=true
+  - ./gradlew :achalasecure:build :achalasecure:publishToMavenLocal
