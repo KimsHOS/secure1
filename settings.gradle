@@ -1,19 +1,11 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+rootProject.name = "faceAuthentication"
+include ':app'
+include ':achalasecure'
+
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
-
-rootProject.name = "faceAuthentication"
-include ':app'
-include ':achalasecure'

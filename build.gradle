@@ -8,13 +8,20 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.5.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
-plugins {
-    id 'com.android.application' version '8.5.0' apply false
-    id 'com.android.library' version '8.5.0' apply false
+// Apply plugins without using the plugins block
+allprojects {
+    group = 'com.github.KimsHOS'
+}
+
+subprojects {
+    apply plugin: 'com.android.library'
+    apply plugin: 'maven-publish'
 }
