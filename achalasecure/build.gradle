@@ -14,10 +14,6 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildFeatures {
-        viewBinding true
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -29,6 +25,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 afterEvaluate {
@@ -37,9 +40,21 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
 
-                groupId = 'com.github.achalasecure'
+                groupId = 'com.github.KimsHOS'
                 artifactId = 'achalasecure'
-                version = '1.0.0'
+                version = '1.0.9'
+
+                pom {
+                    name = 'AchalaSecure'
+                    description = 'Face Authentication Library'
+                    url = 'https://github.com/KimsHOS/secure1'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                }
             }
         }
     }
