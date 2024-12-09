@@ -13,9 +13,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
-    buildFeatures{
-        viewBinding true
-    }
 
     buildTypes {
         release {
@@ -23,16 +20,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+<<<<<<< HEAD
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+=======
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
+          release(MavenPublication){
+                from components.release
+                
+                // The following coordinates will be used by JitPack
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
                 groupId = 'com.github.KimsHOS'
                 artifactId = 'achalasecure'
                 version = '1.0.0'
@@ -47,32 +62,49 @@ afterEvaluate {
 }
 
 dependencies {
+<<<<<<< HEAD
     api 'androidx.appcompat:appcompat:1.7.0'
+=======
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
     api 'com.google.android.material:material:1.12.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
+<<<<<<< HEAD
     // CameraX core library using the camera2 implementation
+=======
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
     def camerax_version = "1.5.0-alpha03"
     api  "androidx.camera:camera-core:${camerax_version}"
     api  "androidx.camera:camera-camera2:${camerax_version}"
     api  "androidx.camera:camera-lifecycle:${camerax_version}"
     api  "androidx.camera:camera-video:${camerax_version}"
     api  "androidx.camera:camera-view:${camerax_version}"
+<<<<<<< HEAD
 
     api  "androidx.camera:camera-extensions:${camerax_version}"
     api  'com.google.mlkit:face-detection:16.1.7'
     api  'com.google.mlkit:object-detection:17.0.2'
 
+=======
+    api  "androidx.camera:camera-extensions:${camerax_version}"
+    api  'com.google.mlkit:face-detection:16.1.7'
+    api  'com.google.mlkit:object-detection:17.0.2'
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
     api  'org.tensorflow:tensorflow-lite:2.12.0'
     api  'org.tensorflow:tensorflow-lite-gpu:2.12.0'
     api  'org.tensorflow:tensorflow-lite-gpu-api:2.12.0'
     api  'org.tensorflow:tensorflow-lite-support:0.4.2'
     api  'com.google.code.gson:gson:2.11.0'
+<<<<<<< HEAD
 
     api  'com.github.f0ris.sweetalert:library:1.5.1'
 
+=======
+    api  'com.github.f0ris.sweetalert:library:1.5.1'
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
     api  'org.opencv:opencv:4.10.0'
 }
 

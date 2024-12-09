@@ -4,6 +4,7 @@ plugins {
     id 'com.android.library' version '8.5.0' apply false
 }
 
+<<<<<<< HEAD
 allprojects {
     repositories {
         google()
@@ -14,4 +15,19 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+=======
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.5.0'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.5.0' apply false
+    id 'com.android.library' version '8.5.0' apply false
+>>>>>>> 6b33cd7a0f818470876dd1faafd5ab39aa2c8762
 }
